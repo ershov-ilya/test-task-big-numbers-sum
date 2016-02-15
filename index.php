@@ -9,7 +9,7 @@
  * Time: 12:48
  */
 
-$start =microtime( true) ;
+$start = microtime(true) ;
 header( 'Content-Type: text/plain; charset=utf-8' ) ;
 //if(isset($_GET['t']))
 define( 'DEBUG' , true ) ;
@@ -42,7 +42,7 @@ try{
         // Удаляем вообще всё кроме цифр
         $str=preg_replace('/[^0-9]/','',$str);
         if(empty($str)) continue;
-        if(DEBUG) print $str_no.') '.$str.PHP_EOL;
+//        if(DEBUG) print $str_no.') '.$str.PHP_EOL;
 
         // Инверсивный перебор строки
         $d=0;
@@ -76,4 +76,7 @@ $sum=ltrim($sum, '0');
 // Вывод результата в консоль / на экран
 if(DEBUG) print "\nResult:\n";
 print $sum;
-if(DEBUG) print PHP_EOL;
+if(DEBUG) {
+    print PHP_EOL;
+    print "Time: ".(microtime(true)-$start).PHP_EOL;
+}
