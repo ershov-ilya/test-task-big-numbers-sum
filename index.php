@@ -20,4 +20,13 @@ if( DEBUG ){
     ini_set( "display_errors" , 1 ) ;
 }
 
-print "OK";
+$data=file('data.php');
+// Вырезаем php exit;
+unset($data[0]);
+
+$i=0;
+foreach($data as $str){
+    print $i.') '.$str.PHP_EOL;
+    $i++;
+}
+
