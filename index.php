@@ -36,8 +36,14 @@ try{
     // Построчный перебор
     $str_no=0;
     foreach($data as $str){
-        $str=trim($str);
-        print $str_no.') '.$str.PHP_EOL;
+        // Удаляем терминаторы строки
+        // $str=trim($str);
+
+        // Удаляем вообще всё кроме цифр
+        $str=preg_replace('/[^0-9]/','',$str);
+        if(DEBUG) print $str_no.') '.$str.PHP_EOL;
+
+        // Инверсивный перебор строки
         $d=0;
         for($i=strlen($str);$i--;){
             $next_digit=0;
@@ -49,6 +55,8 @@ try{
             }
             $d++;
         }
+        // Конец перебора строки
+
         $str_no++;
     }
 
@@ -56,13 +64,15 @@ try{
     echo 'Error: ',  $e->getMessage(), "(code: ".$e->getCode().")\n";
     exit;
 }
+
+// Формирование строки результата
 $sum='';
 for($i=count($arr_sum);$i--;) {
     $sum.=$arr_sum[$i];
 }
 $sum=ltrim($sum, '0');
-print "\nResult:\n";
-if(DEBUG){
-//    print_r($arr_sum);
-}
-print $sum.PHP_EOL;
+
+// Вывод результата в консоль / на экран
+if(DEBUG) print "\nResult:\n";
+print $sum;
+if(DEBUG) print PHP_EOL;
