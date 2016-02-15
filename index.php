@@ -34,17 +34,22 @@ try{
     // Копилка готова
 
     // Построчный перебор
-    $y=0;
+    $str_no=0;
     foreach($data as $str){
-        if(DEBUG) print $y.') '.$str.PHP_EOL;
-        $x=0;
-        $next_digit=0;
+        $str=trim($str);
+        print $str_no.') '.$str.PHP_EOL;
+        $d=0;
         for($i=strlen($str);$i--;){
-            print $str[$i];
-            $x++;
+            $next_digit=0;
+            $arr_sum[$d]+=$str[$i];
+            if($arr_sum[$d]>9){
+                $next_digit=floor($arr_sum[$d]/10);
+                $arr_sum[$d]%=10;
+                $arr_sum[$d+1]+=$next_digit;
+            }
+            $d++;
         }
-        break;
-        $y++;
+        $str_no++;
     }
 
 } catch (Exception $e) {
@@ -55,8 +60,9 @@ $sum='';
 for($i=count($arr_sum);$i--;) {
     $sum.=$arr_sum[$i];
 }
+$sum=ltrim($sum, '0');
 print "\nResult:\n";
 if(DEBUG){
-    print_r($arr_sum);
+//    print_r($arr_sum);
 }
 print $sum.PHP_EOL;
