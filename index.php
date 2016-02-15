@@ -22,6 +22,7 @@ if( DEBUG ){
 
 try{
     $data=file('data.php');
+    if(empty($data)) throw new Exception('No data', 400);
     // Вырезаем php exit;
     unset($data[0]);
 
@@ -32,11 +33,10 @@ try{
     }
     // Копилка готова
 
-    throw new Exception('test', 200);
-
+    // Построчный перебор
     $y=0;
     foreach($data as $str){
-        print $y.') '.$str.PHP_EOL;
+        if(DEBUG) print $y.') '.$str.PHP_EOL;
         $x=0;
         $next_digit=0;
         for($i=strlen($str);$i--;){
@@ -49,4 +49,5 @@ try{
 
 } catch (Exception $e) {
     echo 'Error: ',  $e->getMessage(), "(code: ".$e->getCode().")\n";
+    exit;
 }
