@@ -41,6 +41,7 @@ try{
 
         // Удаляем вообще всё кроме цифр
         $str=preg_replace('/[^0-9]/','',$str);
+        if(empty($str)) continue;
         if(DEBUG) print $str_no.') '.$str.PHP_EOL;
 
         // Инверсивный перебор строки
