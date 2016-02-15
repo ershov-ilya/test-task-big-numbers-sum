@@ -24,9 +24,24 @@ $data=file('data.php');
 // Вырезаем php exit;
 unset($data[0]);
 
-$i=0;
+// Инициируем копилку
+$arr_sum=array();
+for($i=0; $i<=strlen($data[1]); $i++){
+    $arr_sum[$i]=0;
+}
+print_r($arr_sum);
+exit;
+
+$y=0;
 foreach($data as $str){
-    print $i.') '.$str.PHP_EOL;
-    $i++;
+    print $y.') '.$str.PHP_EOL;
+    $x=0;
+    $next_digit=0;
+    for($i=strlen($str);$i--;){
+        print $str[$i];
+        $x++;
+    }
+    break;
+    $y++;
 }
 
