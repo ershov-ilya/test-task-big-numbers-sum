@@ -51,3 +51,12 @@ try{
     echo 'Error: ',  $e->getMessage(), "(code: ".$e->getCode().")\n";
     exit;
 }
+$sum='';
+for($i=count($arr_sum);$i--;) {
+    $sum.=$arr_sum[$i];
+}
+print "\nResult:\n";
+if(DEBUG){
+    print_r($arr_sum);
+}
+print $sum.PHP_EOL;
