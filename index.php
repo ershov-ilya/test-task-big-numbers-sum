@@ -10,7 +10,7 @@
  */
 
 $start = microtime(true) ;
-header( 'Content-Type: text/plain; charset=utf-8' ) ;
+if(empty($_SERVER['SHELL'])) header( 'Content-Type: text/plain; charset=utf-8' ) ;
 //if(isset($_GET['t']))
 define( 'DEBUG' , true ) ;
 defined( 'DEBUG') or define('DEBUG' , false) ;
