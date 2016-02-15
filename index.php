@@ -78,5 +78,5 @@ if(DEBUG) print "\nResult:\n";
 print $sum;
 if(DEBUG) {
     print PHP_EOL;
-    print "Time: ".(microtime(true)-$start).PHP_EOL;
+    print "Time: ".(microtime(true)-$start)." sec.".PHP_EOL;
 }
